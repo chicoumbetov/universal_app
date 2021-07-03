@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react'
-import { StyleSheet, Image, Text, View } from 'react-native';
+import { StyleSheet, Image, View, ScrollView } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -8,6 +8,8 @@ import Animated, {
 } from "react-native-reanimated";
 
 import Header, { HEADER_HEIGHT } from "./components/Header";
+import Ingredients from "./components/Ingredients";
+import IngredientSelection from "./components/IngredientSelection";
 import {
   PIZZA_SIZE,
   BREAD_PADDING,
@@ -60,10 +62,57 @@ export default function PizzaApp() {
 
   return (
     <View style={styles.root} >
+    
       <Animated.View style={[styles.pizza, style]} >
         <Image source={assets.plate} style={styles.plate} />
+        <Image source={assets.bread[0]} style={styles.bread} />
+        <Ingredients zIndex={state.basil} assets={assets.basil} />
+        <Ingredients zIndex={state.sausage} assets={assets.sausage} />
+        <Ingredients zIndex={state.sausage} assets={assets.sausage} />
+        <Ingredients zIndex={state.onion} assets={assets.onion} />
+        <Ingredients zIndex={state.broccoli} assets={assets.broccoli} />
+        <Ingredients zIndex={state.mushroom} assets={assets.mushroom} />
       </Animated.View>
       <Header />
+      <View style={styles.container}>
+        <ScrollView
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.content}
+          horizontal
+        >
+          <IngredientSelection
+            asset={assets.basil[2]}
+            ingredient="basil"
+            state={[state, setState]}
+            selected={selected}
+          />
+          <IngredientSelection
+            asset={assets.sausage[3]}
+            ingredient="sausage"
+            state={[state, setState]}
+            selected={selected}
+          />
+          <IngredientSelection
+            asset={assets.onion[1]}
+            ingredient="onion"
+            state={[state, setState]}
+            selected={selected}
+          />
+          <IngredientSelection
+            asset={assets.broccoli[1]}
+            ingredient="broccoli"
+            state={[state, setState]}
+            selected={selected}
+          />
+          <IngredientSelection
+            asset={assets.mushroom[1]}
+            ingredient="mushroom"
+            state={[state, setState]}
+            selected={selected}
+          />
+        </ScrollView>
+      </View>
+      
     </View>
   );
 }

@@ -15,6 +15,9 @@ import { Routes } from './src/Routes';
 import Pizza from './src/PizzaApp/PizzaApp'
 import LoadAssets from './src/components/LoadAssets';
 
+import { Root } from "native-base";
+import { Font, AppLoading } from "expo";
+
 /**
 const fonts = {
   "SFProDisplay-Bold": require("./assets/fonts/SFPro/SF-Pro-3Display-Bold.otf"),
@@ -25,6 +28,8 @@ const fonts = {
 };
 */
 
+
+
 // const assets = [...globalAssets, ...pizzaAsset];
 // const assets = [ ...globalAssets];
 const Stack = createStackNavigator<Routes>();
@@ -32,7 +37,7 @@ const Stack = createStackNavigator<Routes>();
 const AppNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
-      name="PizzaChallenge"
+      name="PizzaApp"
       component={Pizza}
       options={{
         title: "🍕 Pizza App",
