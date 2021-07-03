@@ -26,6 +26,7 @@ const fonts = {
 */
 
 // const assets = [...globalAssets, ...pizzaAsset];
+// const assets = [ ...globalAssets];
 const Stack = createStackNavigator<Routes>();
 
 const AppNavigator = () => (
@@ -34,7 +35,7 @@ const AppNavigator = () => (
       name="PizzaChallenge"
       component={Pizza}
       options={{
-        title: "🍕 Pizza Challenge",
+        title: "🍕 Pizza App",
       }}
     />
   </Stack.Navigator>
@@ -48,7 +49,7 @@ export default function App() {
     return null;
   } else {
     return (
-      <LoadAssets>
+      <LoadAssets >
         <AppNavigator />
       </LoadAssets>
     );
